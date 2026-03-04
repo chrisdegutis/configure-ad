@@ -32,7 +32,7 @@ This lab simulates an organization’s core identity infrastructure in the cloud
 
 <h2>Operating Systems Used </h2>
 
-- Windows Server 2025
+- Windows Server 2025 Datacenter
 - Windows 10 (21H2)
 
 <h2>High-Level Deployment and Configuration Steps</h2>
