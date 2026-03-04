@@ -86,10 +86,10 @@ Open the Run dialog, type wf.msc, and press Enter. In the Windows Defender Firew
 <b>Step 7</b>
 <p>After the client VM (<b>client-1</b>) is created, configure its DNS settings to use the private IP address of the Domain Controller (<b>dc-1</b>).
 First, locate the private IP address of <b>dc-1</b>. In Azure, select the <b>dc-1</b> virtual machine and scroll down until you see the <b>Private IP address</b> or navigate to Networking > Network Settings, then note this address.</p>
-<img width="800" height="931" alt="image" src="https://github.com/user-attachments/assets/3b3d2994-f859-46b0-9d12-96b461e97685" />
+<img width="800" height="845" alt="image" src="https://github.com/user-attachments/assets/73b748a3-c000-41e7-b378-fc12566728e8" />
 <br><br>
 <p>Next, configure the client VM (<b>client-1</b>) to use this address as its DNS server. Select the <b>client-1</b> VM in Azure and navigate to <b>Networking → Network Settings → Network Interface → DNS servers</b>. Select <b>Custom</b>, then enter the private IP address of <b>dc-1</b> as the DNS server and save the changes. This allows the client machine to use the Domain Controller for <b>DNS resolution</b> and <b>Active Directory domain services</b>.</p>
-<img width="800" height="865" alt="image" src="https://github.com/user-attachments/assets/b4184647-6ca9-44d5-a1c7-de5ae87bcbfe" />
+<img width="800" height="713" alt="image" src="https://github.com/user-attachments/assets/f45c16b4-6a56-40e3-8fa4-159ad705f6a9" />
 <hr><br>
 
 <b>Step 8</b>
@@ -98,7 +98,7 @@ After updating the DNS settings, restart the <b>client-1</b> virtual machine to 
 <br><br>
 In Azure, select the <b>client-1</b> VM and click <b>Restart</b> from the virtual machine overview panel. Once the machine restarts, it will begin using the <b>private IP address of dc-1</b> as its DNS server, allowing it to properly communicate with the Domain Controller for <b>Active Directory</b> and <b>DNS services</b>.
 </p>
-<img width="800" height="1552" alt="image" src="https://github.com/user-attachments/assets/e250ed82-4426-4c80-8a6b-957bd8603c17" />
+<img width="800" height="742" alt="image" src="https://github.com/user-attachments/assets/cc7a2fef-cfb9-4468-9839-47b9b09da35d" />
 <hr><br>
 
 <b>Step 9</b>
@@ -107,13 +107,22 @@ Next, test connectivity between the two machines by logging into <b>client-1</b>
 <br><br>
 Using <b>Remote Desktop</b>, RDP into <b>client-1</b> using its <b>public IP address</b> and the <b>Administrator credentials</b> created during setup. Once logged in, open <b>Command Prompt</b> and run the following command to ping the Domain Controller’s private IP address:
 <br><br>
-<b>ping 10.0.0.5</b>
+<b>ping 10.0.0.4</b>
 <br><br>
 If the ping replies successfully, network connectivity between <b>client-1</b> and <b>dc-1</b> is working as expected.
 </p>
+<img width="800" height="1045" alt="image" src="https://github.com/user-attachments/assets/477788cb-eb76-496d-afdf-e7ce76304569" />
+<hr><br>
 
-
-
+<b>Step 10</b>
+<p>
+From <b>client-1</b>, open <b>PowerShell</b> and run the following command:
+<br><br>
+<b>ipconfig /all</b>
+<br><br>
+Review the output and locate the <b>DNS Servers</b> field. It should display the <b>private IP address of dc-1 (10.0.0.4)</b>, confirming that <b>client-1</b> is using the Domain Controller for DNS resolution.
+</p>
+<img width="800" height="854" alt="image" src="https://github.com/user-attachments/assets/14a74eb1-6b23-4b17-ae79-8b413d7a4f13" />
 
 
 
