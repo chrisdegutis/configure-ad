@@ -81,7 +81,6 @@ Open the Run dialog, type wf.msc, and press Enter. In the Windows Defender Firew
 <b>Step 6</b>
 <p>Create the client virtual machine using Windows 10. Set the computer name to <b>client-1</b>, place the virtual machine in the <b>Active-Directory-Lab</b> Resource Group, and connect it to the <b>Active-Directory-VNet</b> Virtual Network. When configuring the virtual machine, create an Administrator account with a username and password that will be used to log into the system via Remote Desktop. This machine will act as a domain client that will later be joined to the Active Directory domain managed by the Domain Controller.</p>
 <img width="800" height="1860" alt="image" src="https://github.com/user-attachments/assets/f6cb17d2-18ea-498f-90be-7fd1f698fc5b" />
-<img width="800" height="1846" alt="image" src="https://github.com/user-attachments/assets/7819b6e1-77cc-46fa-a7da-173520133c63" />
 <hr><br>
 
 <b>Step 7</b>
