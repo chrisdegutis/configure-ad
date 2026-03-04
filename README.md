@@ -55,14 +55,16 @@ This lab simulates an organization’s core identity infrastructure in the cloud
 <hr><br>
 
 <b>Step 3</b>
-<p>Create the Domain Controller virtual machine (VM) using Windows Server 2025 Datacenter. Set the computer name to <b>dc-1</b> and place the virtual machine in the <b>Active-Directory-Lab</b> Resource Group. This virtual machine will host Active Directory Domain Services (AD DS) and will manage authentication, users, and resources within the domain. When configuring the virtual machine, create an Administrator account with a username and password that will be used to log into the system via Remote Desktop. Ensure the virtual machine is connected to the <b>Active-Directory-VNet</b> Virtual Network created earlier so it can communicate with other machines in the environment.</p>
+<p>Create the Domain Controller virtual machine (VM) using Windows Server 2025 Datacenter. Set the computer name to <b>dc-1</b> and place the virtual machine in the <b>Active-Directory-Lab</b> Resource Group. This virtual machine will host Active Directory Domain Services (AD DS) and will manage authentication, users, and resources within the domain. When configuring the virtual machine, create an Administrator account with a username and password that will be used to log into the system via Remote Desktop.</p>
 <img width="800" height="1861" alt="image" src="https://github.com/user-attachments/assets/980ddf0d-477d-4d7b-b4c6-5992e875c13b" />
+<p>Ensure the virtual machine is connected to the <b>Active-Directory-VNet</b> Virtual Network created earlier so it can communicate with other machines in the environment.</p>
 <img width="800" height="1847" alt="image" src="https://github.com/user-attachments/assets/f2e47d83-68fb-4e5c-bf7c-0bbbbec26bd8" />
 <hr><br>
 
 <b>Step 4</b>
-<p>After the Domain Controller virtual machine (dc-1) is created, select the dc-1 VM in Azure and navigate to <b>Networking → Network Settings → Network Interface → ipconfig1</b>. From there, set the Network Interface (NIC) Private IP address settings to <b>Static</b> and <b>Save</b>. This ensures the Domain Controller always uses the same IP address, which is required for reliable Active Directory and DNS functionality.</p>
+<p>After the Domain Controller virtual machine (dc-1) is created, select the dc-1 VM in Azure and navigate to <b>Networking → Network Settings → Network Interface → ipconfig1</b>.</p>
 <img width="800" height="1258" alt="image" src="https://github.com/user-attachments/assets/84854abb-ba39-4eda-aef3-d4f8b231cc72" />
+<p>From there, set the Network Interface (NIC) Private IP address settings to <b>Static</b> and save the changes. This ensures the Domain Controller always uses the same IP address, which is required for reliable Active Directory and DNS functionality.</p>
 <img width="800" height="1658" alt="image" src="https://github.com/user-attachments/assets/cbe9bb44-7900-4bd6-b555-4a324ac6c467" />
 <hr><br>
 
@@ -80,6 +82,8 @@ Open the Run dialog, type wf.msc, and press Enter. In the Windows Defender Firew
 <hr><br>
 
 <b>Step 7</b>
-<p></p>
+<p>First, locate the private IP address of the Domain Controller (dc-1). In Azure, select the dc-1 virtual machine and scroll down until you see the Private IP address, then note this address.
+<br>
+Next, configure the client virtual machine (client-1) to use this address as its DNS server. Select the client-1 VM in Azure and navigate to <b>Networking → Network Settings → Network Interface → DNS Servers</b>. Select <b>Custom</b>, then enter the private IP address of dc-1 as the DNS server and save the changes. This allows the client machine to use the Domain Controller for DNS resolution and Active Directory domain services.</p>
 
 
