@@ -45,7 +45,9 @@ This lab simulates an organization’s core identity infrastructure in the cloud
 <h2>Deployment and Configuration Steps</h2>
 
 <b>Step 1</b>
-<p>Begin by creating a Resource Group, which will act as a logical container for all Azure resources used in this lab, including the Virtual Network, Domain Controller, and Virtual Machines.</p>
+<p>Begin by creating a <b>Resource Group</b>, which will act as a logical container for all Azure resources used in this lab, including the Virtual Network, Domain Controller, and Virtual Machines. 
+<br><br>
+Ensure the region is the same for resource group, virtual network, and virtual machines. In this lab, we will be using <b>East US 2</b>.</p>
 <img width="800" height="1875" alt="image" src="https://github.com/user-attachments/assets/2e23386a-6936-4577-8c7b-f011c01c52e1" />
 <hr><br>
 
