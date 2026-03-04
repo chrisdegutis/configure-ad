@@ -95,13 +95,19 @@ After updating the DNS settings, restart the <b>client-1</b> virtual machine to 
 <br><br>
 In Azure, select the <b>client-1</b> VM and click <b>Restart</b> from the virtual machine overview panel. Once the machine restarts, it will begin using the <b>private IP address of dc-1</b> as its DNS server, allowing it to properly communicate with the Domain Controller for <b>Active Directory</b> and <b>DNS services</b>.
 </p>
-<img width="2166" height="1552" alt="image" src="https://github.com/user-attachments/assets/e250ed82-4426-4c80-8a6b-957bd8603c17" />
+<img width="800" height="1552" alt="image" src="https://github.com/user-attachments/assets/e250ed82-4426-4c80-8a6b-957bd8603c17" />
 <hr><br>
 
 <b>Step 9</b>
-
-
-
+<p>
+Next, test connectivity between the two machines by logging into <b>client-1</b> and pinging the Domain Controller (<b>dc-1</b>).
+<br><br>
+Using <b>Remote Desktop</b>, RDP into <b>client-1</b> using its <b>public IP address</b> and the <b>Administrator credentials</b> created during setup. Once logged in, open <b>Command Prompt</b> and run the following command to ping the Domain Controller’s private IP address:
+<br><br>
+<b>ping 10.0.0.5</b>
+<br><br>
+If the ping replies successfully, network connectivity between <b>client-1</b> and <b>dc-1</b> is working as expected.
+</p>
 
 
 
