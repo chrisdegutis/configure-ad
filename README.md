@@ -45,7 +45,7 @@ This lab simulates an organization’s core identity infrastructure in the cloud
 <h2>Deployment and Configuration Steps</h2>
 
 <p>
-<img alt="Screenshot 2026-03-04 at 11 01 56 AM" src="https://github.com/user-attachments/assets/12a4daed-cd64-4db5-a5d4-f8d7720ffeac" />
+![Screenshot_2-3-2026_165421_portal azure com](https://github.com/user-attachments/assets/80c953c1-ecea-48d9-bada-3b2dbfba8573)
 </p>
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
