@@ -44,12 +44,12 @@ It also covers core Active Directory administration tasks, including user and or
 <br><br>
 Ensure the region is the same for resource group, virtual network, and virtual machines. In this lab, we will name the resource group <b>Active-Directory-Lab</b> and the region <b>East US 2</b>.</p>
 <img width="800" height="1875" alt="image" src="https://github.com/user-attachments/assets/2e23386a-6936-4577-8c7b-f011c01c52e1" />
-<hr><br>
+<hr>
 
 <h3>Step 2: Create a Virtual Network</h3>
 <p>Create a <b>Virtual Network (VNet)</b> to enable network communication between the virtual machines and other resources in this environment. The VNet should be placed in the <b>Resource Group created above (Active-Directory-Lab)</b>. For this lab, the VNet will be deployed in the <b>East US 2</b> region. Ensure that all virtual machines and related resources are deployed in the same region <b>East US 2</b> to allow proper connectivity.</p>
 <img width="800" height="1842" alt="image" src="https://github.com/user-attachments/assets/6aeb214f-0e05-49cb-89e5-eea66ee46860" />
-<hr><br>
+<hr>
 
 <h3>Step 3: Create the Domain Controller VM</h3>
 <p>Next, create the Domain Controller virtual machine (VM) using Windows Server 2025 Datacenter. Set the computer name to <b>dc-1</b>, region to <b>East US 2</b> and place the virtual machine in the <b>Active-Directory-Lab</b> Resource Group. This virtual machine will host Active Directory Domain Services (AD DS) and will manage authentication, users, and resources within the domain. 
@@ -57,21 +57,21 @@ Ensure the region is the same for resource group, virtual network, and virtual m
 When configuring the virtual machine, create an Administrator account with a username and password that will be used to log into the system via Remote Desktop. Click Next to Networking and ensure the virtual machine is connected to the <b>Active-Directory-VNet</b> Virtual Network created earlier so it can communicate with other machines in the environment. Then click Review & Create.</p>
 <img width="800" height="1861" alt="image" src="https://github.com/user-attachments/assets/980ddf0d-477d-4d7b-b4c6-5992e875c13b" />
 <img width="800" height="1847" alt="image" src="https://github.com/user-attachments/assets/f2e47d83-68fb-4e5c-bf7c-0bbbbec26bd8" />
-<hr><br>
+<hr>
 
 <h3>Step 4: Configure Static IP for DC-1</h3>
 <p>After the Domain Controller virtual machine (dc-1) is created, select the dc-1 VM in Azure and navigate to <b>Networking → Network Settings → Network Interface → ipconfig1</b>.</p>
 <img width="800" height="1258" alt="image" src="https://github.com/user-attachments/assets/84854abb-ba39-4eda-aef3-d4f8b231cc72" /><br><br>
 <p>From there, set the Network Interface (NIC) Private IP address settings to <b>Static</b> and save the changes. This ensures the Domain Controller always uses the same IP address, which is required for reliable Active Directory and DNS functionality.</p>
 <img width="800" height="895" alt="image" src="https://github.com/user-attachments/assets/bd333164-38ab-4895-8ffb-5f3ac5bb2bec" />
-<hr><br>
+<hr>
 
 <h3>Step 5: Disable Windows Firewall</h3>
 <p>Next, log into the Domain Controller virtual machine (dc-1) using the Administrator credentials created during the VM setup. Once logged in, disable the Windows Firewall to allow connectivity testing between the virtual machines.
 <br><br>
 Open the Run dialog, type wf.msc, and press Enter. In the Windows Defender Firewall window, select Windows Defender Firewall Properties, then set the firewall state to Off for the Domain, Private, and Public profiles. This will temporarily allow unrestricted communication between the machines for testing purposes.</p>
 <img width="800" height="1562" alt="image" src="https://github.com/user-attachments/assets/ad938225-ecca-4cc0-83d3-438cc7f6d188" />
-<hr><br>
+<hr>
 
 <h3>Step 6: Create the Client VM</h3>
 <p>Create the client virtual machine using Windows 10. Set the computer name to <b>client-1</b>, place the virtual machine in the <b>Active-Directory-Lab</b> Resource Group, and connect it to the <b>Active-Directory-VNet</b> Virtual Network. When configuring the virtual machine, create an Administrator account with a username and password that will be used to log into the system via Remote Desktop. This machine will act as a domain client that will later be joined to the Active Directory domain managed by the Domain Controller.</p>
@@ -85,7 +85,7 @@ First, locate the private IP address of <b>dc-1</b>. In Azure, select the <b>dc-
 <br><br>
 <p>Next, configure the client VM (<b>client-1</b>) to use this address as its DNS server. Select the <b>client-1</b> VM in Azure and navigate to <b>Networking → Network Settings → Network Interface → DNS servers</b>. Select <b>Custom</b>, then enter the private IP address of <b>dc-1</b> as the DNS server and save the changes. This allows the client machine to use the Domain Controller for <b>DNS resolution</b> and <b>Active Directory domain services</b>.</p>
 <img width="800" height="713" alt="image" src="https://github.com/user-attachments/assets/f45c16b4-6a56-40e3-8fa4-159ad705f6a9" />
-<hr><br>
+<hr>
 
 <h3>Step 8: Restart Client-1</h3>
 <p>
@@ -94,7 +94,7 @@ After updating the DNS settings, restart the <b>client-1</b> virtual machine to 
 In Azure, select the <b>client-1</b> VM and click <b>Restart</b> from the virtual machine overview panel. Once the machine restarts, it will begin using the <b>private IP address of dc-1</b> as its DNS server, allowing it to properly communicate with the Domain Controller for <b>Active Directory</b> and <b>DNS services</b>.
 </p>
 <img width="800" height="742" alt="image" src="https://github.com/user-attachments/assets/cc7a2fef-cfb9-4468-9839-47b9b09da35d" />
-<hr><br>
+<hr>
 
 <h3>Step 9: Test Connectivity</h3>
 <p>
@@ -107,7 +107,7 @@ Using <b>Remote Desktop</b>, RDP into <b>client-1</b> using its <b>public IP add
 If the ping replies successfully, network connectivity between <b>client-1</b> and <b>dc-1</b> is working as expected.
 </p>
 <img width="800" height="788" alt="image" src="https://github.com/user-attachments/assets/9927c0a2-46a8-482a-b5dd-a791ae54b0e6" />
-<hr><br>
+<hr>
 
 <h3>Step 10: Verify DNS Configuration</h3>
 <p>
@@ -118,8 +118,39 @@ From <b>client-1</b>, open <b>PowerShell</b> and run the following command:
 Review the output and locate the <b>DNS Servers</b> field. It should display the <b>private IP address of dc-1 (10.0.0.4)</b>, confirming that <b>client-1</b> is using the Domain Controller for DNS resolution.
 </p>
 <img width="800" height="854" alt="image" src="https://github.com/user-attachments/assets/14a74eb1-6b23-4b17-ae79-8b413d7a4f13" />
+<hr>
 
+<h3>Step 11: Install Active Directory Domain Services</h3>
+<p>
+Log into <b>DC-1</b> and install <b>Active Directory Domain Services (AD DS)</b>. Open <b>Server Manager</b>, select <b>Add Roles and Features</b>, and install the <b>Active Directory Domain Services</b> role. This will prepare the server to be promoted to a <b>Domain Controller</b>.
+</p>
+<img width="800" height="1044" alt="image" src="https://github.com/user-attachments/assets/601574d7-4e25-4cd1-8057-28bf5c50eca9" />
+<hr>
 
+<h3>Step 12: Promote DC-1 to a Domain Controller</h3>
+<p>
+After installing <b>Active Directory Domain Services (AD DS)</b>, return to <b>Server Manager</b>. You will see a notification flag indicating that additional configuration is required. Click the notification and select <b>Promote this server to a domain controller</b>.
+</p>
+<img width="3356" height="2092" alt="image" src="https://github.com/user-attachments/assets/2c74efc6-cdb8-46e0-b48f-f65551ef0141" />
+<p>
+In the <b>Active Directory Domain Services Configuration Wizard</b>, choose <b>Add a new forest</b>. Enter the <b>Root domain name</b> as: <b>mydomain.com</b>. Click <b>Next</b> to continue.
+</p>
+<img width="3338" height="2074" alt="image" src="https://github.com/user-attachments/assets/f8f5bdcb-2dbf-4655-b372-b1a3446b4155" />
+<p>
+On the <b>Domain Controller Options</b> page:
+</p>
+<ul>
+<li>Leave the <b>Forest functional level</b> and <b>Domain functional level</b> as the default</li>
+<li>Ensure <b>DNS Server</b> and <b>Global Catalog</b> are checked</li>
+<li>Create a <b>Directory Services Restore Mode (DSRM) password</b>. For this lab, I will be using <b>Password1</b></li>
+</ul>
+<p>
+Click <b>Next</b> through the remaining configuration pages until you reach <b>Install</b>.
+</p>
+<img width="3318" height="2074" alt="image" src="https://github.com/user-attachments/assets/6aa544d7-9079-4c5b-99e1-9cf0cafec375" />
+<p>
+After the installation completes, the server will automatically restart. Once the system restarts, log back into <b>DC-1</b> using the domain account: <b>mydomain.com\labuser</b> with the same password used during setup.
+</p>
 
 
 
