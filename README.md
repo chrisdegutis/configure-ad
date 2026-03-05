@@ -39,19 +39,19 @@ It also covers core Active Directory administration tasks, including user and or
 
 <h2>Deployment and Configuration Steps</h2>
 
-<b>Step 1</b>
+<h3>Step 1</h3>
 <p>Begin by creating a <b>Resource Group</b>, which will act as a logical container for all Azure resources used in this lab, including the Virtual Network, Domain Controller, and Virtual Machines. 
 <br><br>
 Ensure the region is the same for resource group, virtual network, and virtual machines. In this lab, we will be using <b>East US 2</b>.</p>
 <img width="800" height="1875" alt="image" src="https://github.com/user-attachments/assets/2e23386a-6936-4577-8c7b-f011c01c52e1" />
 <hr><br>
 
-<b>Step 2</b>
+<h3>Step 2</h3>
 <p>Create a Virtual Network (VNet) to enable network communication between the virtual machines and other resources in this environment. The VNet should be placed in the Resource Group created above. For this lab, the VNet will be deployed in the East US 2 region. Ensure that all virtual machines and related resources are deployed in the same region to allow proper connectivity.</p>
 <img width="800" height="1842" alt="image" src="https://github.com/user-attachments/assets/6aeb214f-0e05-49cb-89e5-eea66ee46860" />
 <hr><br>
 
-<b>Step 3</b>
+<h3>Step 3</h3>
 <p>Next, create the Domain Controller virtual machine (VM) using Windows Server 2025 Datacenter. Set the computer name to <b>dc-1</b>, region to <b>East US 2</b> and place the virtual machine in the <b>Active-Directory-Lab</b> Resource Group. This virtual machine will host Active Directory Domain Services (AD DS) and will manage authentication, users, and resources within the domain. 
 <br><br>
 When configuring the virtual machine, create an Administrator account with a username and password that will be used to log into the system via Remote Desktop. Click Next to Networking and ensure the virtual machine is connected to the <b>Active-Directory-VNet</b> Virtual Network created earlier so it can communicate with other machines in the environment. Then click Review & Create.</p>
@@ -59,26 +59,26 @@ When configuring the virtual machine, create an Administrator account with a use
 <img width="800" height="1847" alt="image" src="https://github.com/user-attachments/assets/f2e47d83-68fb-4e5c-bf7c-0bbbbec26bd8" />
 <hr><br>
 
-<b>Step 4</b>
+<h3>Step 4</h3>
 <p>After the Domain Controller virtual machine (dc-1) is created, select the dc-1 VM in Azure and navigate to <b>Networking → Network Settings → Network Interface → ipconfig1</b>.</p>
 <img width="800" height="1258" alt="image" src="https://github.com/user-attachments/assets/84854abb-ba39-4eda-aef3-d4f8b231cc72" />
 <p>From there, set the Network Interface (NIC) Private IP address settings to <b>Static</b> and save the changes. This ensures the Domain Controller always uses the same IP address, which is required for reliable Active Directory and DNS functionality.</p>
 <img width="800" height="1658" alt="image" src="https://github.com/user-attachments/assets/cbe9bb44-7900-4bd6-b555-4a324ac6c467" />
 <hr><br>
 
-<b>Step 5</b>
+<h3>Step 5</h3>
 <p>Next, log into the Domain Controller virtual machine (dc-1) using the Administrator credentials created during the VM setup. Once logged in, disable the Windows Firewall to allow connectivity testing between the virtual machines.
 <br><br>
 Open the Run dialog, type wf.msc, and press Enter. In the Windows Defender Firewall window, select Windows Defender Firewall Properties, then set the firewall state to Off for the Domain, Private, and Public profiles. This will temporarily allow unrestricted communication between the machines for testing purposes.</p>
 <img width="800" height="1562" alt="image" src="https://github.com/user-attachments/assets/ad938225-ecca-4cc0-83d3-438cc7f6d188" />
 <hr><br>
 
-<b>Step 6</b>
+<h3>Step 6</h3>
 <p>Create the client virtual machine using Windows 10. Set the computer name to <b>client-1</b>, place the virtual machine in the <b>Active-Directory-Lab</b> Resource Group, and connect it to the <b>Active-Directory-VNet</b> Virtual Network. When configuring the virtual machine, create an Administrator account with a username and password that will be used to log into the system via Remote Desktop. This machine will act as a domain client that will later be joined to the Active Directory domain managed by the Domain Controller.</p>
 <img width="800" height="1860" alt="image" src="https://github.com/user-attachments/assets/f6cb17d2-18ea-498f-90be-7fd1f698fc5b" />
 <hr><br>
 
-<b>Step 7</b>
+<h3>Step 7</h3>
 <p>After the client VM (<b>client-1</b>) is created, configure its DNS settings to use the private IP address of the Domain Controller (<b>dc-1</b>).
 First, locate the private IP address of <b>dc-1</b>. In Azure, select the <b>dc-1</b> virtual machine and scroll down until you see the <b>Private IP address</b> or navigate to Networking > Network Settings, then note this address.</p>
 <img width="800" height="845" alt="image" src="https://github.com/user-attachments/assets/73b748a3-c000-41e7-b378-fc12566728e8" />
@@ -87,7 +87,7 @@ First, locate the private IP address of <b>dc-1</b>. In Azure, select the <b>dc-
 <img width="800" height="713" alt="image" src="https://github.com/user-attachments/assets/f45c16b4-6a56-40e3-8fa4-159ad705f6a9" />
 <hr><br>
 
-<b>Step 8</b>
+<h3>Step 8</h3>
 <p>
 After updating the DNS settings, restart the <b>client-1</b> virtual machine to ensure the new DNS configuration takes effect.
 <br><br>
@@ -96,7 +96,7 @@ In Azure, select the <b>client-1</b> VM and click <b>Restart</b> from the virtua
 <img width="800" height="742" alt="image" src="https://github.com/user-attachments/assets/cc7a2fef-cfb9-4468-9839-47b9b09da35d" />
 <hr><br>
 
-<b>Step 9</b>
+<h3>Step 9</h3>
 <p>
 Next, test connectivity between the two machines by logging into <b>client-1</b> and pinging the Domain Controller (<b>dc-1</b>).
 <br><br>
@@ -109,7 +109,7 @@ If the ping replies successfully, network connectivity between <b>client-1</b> a
 <img width="800" height="788" alt="image" src="https://github.com/user-attachments/assets/9927c0a2-46a8-482a-b5dd-a791ae54b0e6" />
 <hr><br>
 
-<b>Step 10</b>
+<h3>Step 10</h3>
 <p>
 From <b>client-1</b>, open <b>PowerShell</b> and run the following command:
 <br><br>
