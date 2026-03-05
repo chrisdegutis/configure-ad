@@ -11,13 +11,14 @@ It also covers core Active Directory administration tasks, including user and or
 
 This lab simulates an organization’s core identity infrastructure in the cloud by:
 
-1. Creating Azure VMs for a Domain Controller and a client machine
-2. Installing and promoting the server VM to a Domain Controller
-3. Configuring static networking and DNS resolution across VMs
-4. Creating AD Organizational Units, users, groups, and domain accounts
-5. Joining a client VM to the domain and verifying user authentication
-6. Enabling domain-based user login and Remote Desktop access for non-admins
-7. Using PowerShell to create multiple users and perform administrative tasks
+- Provisioning Azure infrastructure including a Resource Group, Virtual Network, and Virtual Machines
+- Deploying a Windows Server VM and promoting it to a Domain Controller using Active Directory Domain Services (AD DS)
+- Configuring static networking and DNS so client machines use the Domain Controller for name resolution
+- Creating Active Directory Organizational Units (OUs), users, groups, and administrative accounts
+- Joining a Windows client machine to the domain and verifying domain authentication
+- Enabling Remote Desktop access for domain users on the client machine
+- Using PowerShell to automate the creation of multiple Active Directory user accounts
+- Configuring account lockout policies and performing account management tasks such as unlocking accounts, resetting passwords, and enabling or disabling users
 
 <h2>Video Demonstration</h2>
 
