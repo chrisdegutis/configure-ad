@@ -61,7 +61,7 @@ When configuring the virtual machine, create an Administrator account with a use
 
 <h3>Step 4</h3>
 <p>After the Domain Controller virtual machine (dc-1) is created, select the dc-1 VM in Azure and navigate to <b>Networking → Network Settings → Network Interface → ipconfig1</b>.</p>
-<img width="800" height="1258" alt="image" src="https://github.com/user-attachments/assets/84854abb-ba39-4eda-aef3-d4f8b231cc72" />
+<img width="800" height="1258" alt="image" src="https://github.com/user-attachments/assets/84854abb-ba39-4eda-aef3-d4f8b231cc72" /><br><br>
 <p>From there, set the Network Interface (NIC) Private IP address settings to <b>Static</b> and save the changes. This ensures the Domain Controller always uses the same IP address, which is required for reliable Active Directory and DNS functionality.</p>
 <img width="800" height="1658" alt="image" src="https://github.com/user-attachments/assets/cbe9bb44-7900-4bd6-b555-4a324ac6c467" />
 <hr><br>
