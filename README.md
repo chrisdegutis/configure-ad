@@ -25,8 +25,7 @@ It also covers core Active Directory administration tasks, including user and or
 - Windows 10 (21H2)
 
 <h2>High-Level Deployment and Configuration Steps</h2>
-This lab simulates an organization’s core identity infrastructure in the cloud by:
-<br>
+<p>This lab simulates an organization’s core identity infrastructure in the cloud by:
 - Provisioning Azure infrastructure including a Resource Group, Virtual Network, and Virtual Machines
 - Deploying a Windows Server VM and promoting it to a Domain Controller using Active Directory Domain Services (AD DS)
 - Configuring static networking and DNS so client machines use the Domain Controller for name resolution
@@ -34,7 +33,7 @@ This lab simulates an organization’s core identity infrastructure in the cloud
 - Joining a Windows client machine to the domain and verifying domain authentication
 - Enabling Remote Desktop access for domain users on the client machine
 - Using PowerShell to automate the creation of multiple Active Directory user accounts
-- Configuring account lockout policies and performing account management tasks such as unlocking accounts, resetting passwords, and enabling or disabling users
+- Configuring account lockout policies and performing account management tasks such as unlocking accounts, resetting passwords, and enabling or disabling users</p>
 
 <h2>Deployment and Configuration Steps</h2>
 
