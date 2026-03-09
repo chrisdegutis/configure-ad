@@ -131,11 +131,11 @@ Log into <b>DC-1</b> and install <b>Active Directory Domain Services (AD DS)</b>
 <p>
 After installing <b>Active Directory Domain Services (AD DS)</b>, return to <b>Server Manager</b>. You will see a notification flag indicating that additional configuration is required. Click the notification and select <b>Promote this server to a domain controller</b>.
 </p>
-<img width="3356" height="2092" alt="image" src="https://github.com/user-attachments/assets/2c74efc6-cdb8-46e0-b48f-f65551ef0141" />
+<img width="800" height="2092" alt="image" src="https://github.com/user-attachments/assets/2c74efc6-cdb8-46e0-b48f-f65551ef0141" />
 <p>
 In the <b>Active Directory Domain Services Configuration Wizard</b>, choose <b>Add a new forest</b>. Enter the <b>Root domain name</b> as: <b>mydomain.com</b>. Click <b>Next</b> to continue.
 </p>
-<img width="3338" height="2074" alt="image" src="https://github.com/user-attachments/assets/f8f5bdcb-2dbf-4655-b372-b1a3446b4155" />
+<img width="800" height="2074" alt="image" src="https://github.com/user-attachments/assets/f8f5bdcb-2dbf-4655-b372-b1a3446b4155" />
 <p>
 On the <b>Domain Controller Options</b> page:
 </p>
@@ -147,10 +147,72 @@ On the <b>Domain Controller Options</b> page:
 <p>
 Click <b>Next</b> through the remaining configuration pages until you reach <b>Install</b>.
 </p>
-<img width="3318" height="2074" alt="image" src="https://github.com/user-attachments/assets/6aa544d7-9079-4c5b-99e1-9cf0cafec375" />
+<img width="800" height="2074" alt="image" src="https://github.com/user-attachments/assets/6aa544d7-9079-4c5b-99e1-9cf0cafec375" />
 <p>
 After the installation completes, the server will automatically restart. Once the system restarts, log back into <b>DC-1</b> using the domain account: <b>mydomain.com\labuser</b> with the same password used during setup.
 </p>
+<hr>
 
 
+<h3>Step 13: Create a Domain Administrator Account</h3>
+<p>
+Log into <b>DC-1</b> as <b>mydomain.com\labuser</b> and open <b>Active Directory Users and Computers (ADUC)</b> from the <b>Tools</b> menu in <b>Server Manager</b> or from the <b>Start Menu</b>.
+</p>
+<img width="800" height="1772" alt="image" src="https://github.com/user-attachments/assets/c76aa01b-001d-4f5b-a6a5-5f6de485c2d2" />
+<p>Create two Organizational Units (OUs):</p>
+<ul>
+<li><b>_EMPLOYEES</b></li>
+<li><b>_ADMINS</b></li>
+</ul>
+<img width="800" height="1428" alt="image" src="https://github.com/user-attachments/assets/8e39ec52-4920-465f-8ee3-b7d204e37423" />
+<p>
+Next, create a new domain user inside the <b>_ADMINS</b> OU with the following information:
+</p>
+<ul>
+<li><b>Name:</b> Jane Doe</li>
+<li><b>Username:</b> jane_admin</li>
+<li><b>Password:</b> Cyberlab123!</li>
+</ul>
+<img width="800" height="1378" alt="image" src="https://github.com/user-attachments/assets/31b706a8-a603-4446-9627-d56330637620" />
+<img width="800" height="1414" alt="image" src="https://github.com/user-attachments/assets/3fffa9e6-d3e6-49b6-b7ce-9995a3df4bc6" />
+<p>
+Add <b>jane_admin</b> to the <b>Domain Admins</b> security group to grant administrative privileges. Right-click <b>Jane Doe > Properties</b>, select tab <b>Member of</b>, type in <b>Domain Admins</b> and click <b>Check Names</b> then <b>OK</b>. Then <b>Apply</b> and <b>OK</b>.
+</p>
+<img width="800" height="1418" alt="image" src="https://github.com/user-attachments/assets/24407216-136b-451f-8f4a-c0a1a85ca2b7" />
+<img width="800" height="1406" alt="image" src="https://github.com/user-attachments/assets/79d7541c-eb34-4852-8a74-1165ac433e74" />
+<p>
+Log out of <b>DC-1</b> and log back in using the domain account:
+</p>
+<p><b>mydomain.com\jane_admin</b></p>
+<p>
+Use <b>jane_admin</b> as your administrator account for the remainder of the lab.
+</p>
+<hr>
+
+
+<h3>Step 14: Join Client-1 to the Domain</h3>
+<p>
+Log into <b>Client-1</b> using the original local administrator account <b>labuser</b>. Go to <b>Start Menu > Settings > About</b> then click <b>Rename this PC (advanced)</b>. Within the tab <b>Computer Name</b> click <b>Change</b> next to <b>To rename this computer or change its domain or workgroup, click Change</b>. Under <b>Member of > Domain</b>, type in <b>mydomain.com</b> and click <b>OK</b>. You will then be required to login using domain administrator credentials to save the changes. Use <b>mydomain.com\jane_admin</b> and the password you set in the last step (this lab will use <b>Cyberlab123!</b>).
+</p>
+<p>
+After entering the domain administrator credentials, you will see a message stating the computer has been added to the domain and the computer will automatically restart to apply the changes.
+</p>
+<img width="800" height="2016" alt="image" src="https://github.com/user-attachments/assets/598b81c5-fa0f-4119-a810-6c3fe5368cd3" />
+<p>
+Next, log back into the <b>Domain Controller (DC-1)</b> and open <b>Active Directory Users and Computers (ADUC)</b>. Verify that <b>Client-1</b> appears in the domain computers list.
+</p>
+<img width="800" height="2006" alt="image" src="https://github.com/user-attachments/assets/44192bdb-c6a0-4ad0-8b12-c17c0b1e7c23" />
+<hr>
+
+
+<h3>Step 15: Organize Client Computers in Active Directory</h3>
+<p>
+Log into the <b>Domain Controller (DC-1)</b> and open <b>Active Directory Users and Computers (ADUC)</b>.
+</p>
+<p>
+Create a new <b>Organizational Unit (OU)</b> named <b>_CLIENTS</b>.
+</p>
+<img width="800" height="1276" alt="image" src="https://github.com/user-attachments/assets/ec841bd7-94dc-4f31-8374-bde3be4e4c47" />
+<p>Once created, locate <b>Client-1</b> in the Computers folder and drag it into the <b>_CLIENTS</b> OU to keep client machines organized within the directory.</p>
+<img width="800" height="1064" alt="image" src="https://github.com/user-attachments/assets/4fdf7d24-3e87-47ae-b14e-edb1f328aea1" />
 
