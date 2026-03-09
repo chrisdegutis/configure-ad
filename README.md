@@ -212,6 +212,7 @@ Log into the <b>Domain Controller (DC-1)</b> and open <b>Active Directory Users 
 <p>
 Create a new <b>Organizational Unit (OU)</b> named <b>_CLIENTS</b>.
 </p>
+<hr>
 <img width="800" height="1276" alt="image" src="https://github.com/user-attachments/assets/ec841bd7-94dc-4f31-8374-bde3be4e4c47" />
 <p>Once created, locate <b>Client-1</b> in the Computers folder and drag it into the <b>_CLIENTS</b> OU to keep client machines organized within the directory.</p>
 <img width="800" height="1064" alt="image" src="https://github.com/user-attachments/assets/4fdf7d24-3e87-47ae-b14e-edb1f328aea1" />
