@@ -258,7 +258,7 @@ Log into <b>DC-1</b> using the domain administrator account <b>mydomain.com\jane
 Open <b>PowerShell ISE</b> as an administrator. Create a new script file and save it as <b>create-employees</b>.
 </p>
 <img width="800" height="1944" alt="image" src="https://github.com/user-attachments/assets/6f5f62b8-381c-4eae-ba0b-875e262b6cfb" />
-<p>Paste the contents of the user creation script (<a href="https://github.com/chrisdegutis/ad-user-creation-script/blob/main/create-active-directory-employees.ps1">found here</a>) into the editor.
+<p>Paste the contents of the user creation script (<a href="https://github.com/chrisdegutis/ad-user-creation-script/blob/main/create-active-directory-employees.ps1">found here</a>) into the editor. Note: all user accounts will be created with the password <b>Password1</b>.
 </p>
 <p>
 Click <b>Run</b> to run the script to automatically create 1000 user accounts in the <b>_EMPLOYEES</b> organizational unit (OU) in <b>Active Directory</b> .
