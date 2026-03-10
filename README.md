@@ -2,7 +2,7 @@
 <img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
 </p>
 
-<h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
+<h1>Active Directory Domain Deployment in Azure</h1>
 This project demonstrates deploying and managing an Active Directory Domain Services (AD DS) environment in Microsoft Azure using Windows Server and Windows client virtual machines. The lab includes provisioning cloud infrastructure, configuring networking and DNS, installing and promoting a Domain Controller, and joining a client machine to the domain.
 <br><br>
 It also covers core Active Directory administration tasks, including user and organizational unit management, Group Policy configuration, account lockout policies, and password resets.<br />
