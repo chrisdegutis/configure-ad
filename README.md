@@ -255,8 +255,17 @@ Once the policy updates, domain users will be able to connect to <b>Client-1</b>
 Log into <b>DC-1</b> using the domain administrator account <b>mydomain.com\jane_admin</b>.
 </p>
 <p>
-Open <b>PowerShell ISE</b> as an administrator. Create a new script file and paste the contents of the user creation script (<a href="https://github.com/chrisdegutis/ad-user-creation-script/blob/main/create-active-directory-employees.ps1">found here</a>) into the editor.
+Open <b>PowerShell ISE</b> as an administrator. Create a new script file and save it as <b>create-employees</b>.
+</p>
+<img width="800" height="1944" alt="image" src="https://github.com/user-attachments/assets/6f5f62b8-381c-4eae-ba0b-875e262b6cfb" />
+<p>Paste the contents of the user creation script (<a href="https://github.com/chrisdegutis/ad-user-creation-script/blob/main/create-active-directory-employees.ps1">found here</a>) into the editor.
 </p>
 <p>
-Run the script to automatically create multiple user accounts in <b>Active Directory</b>.
+Click <b>Run</b> to run the script to automatically create 1000 user accounts in the <b>_EMPLOYEES</b> organizational unit (OU) in <b>Active Directory</b> .
 </p>
+<img width="800" height="1946" alt="image" src="https://github.com/user-attachments/assets/87f05d6c-e5fb-40ac-85c3-6cb3855cf710" />
+<p>
+Open <b>Active Directory Users and Computers</b> and verify the new user accounts created in the <b>_EMPLOYEES</b> OU.
+</p>
+<p>Double-click any user and go to the <b>Account</b> tab. Note the <b>User logon name</b>. (I will be using <b>ascott@mydomain.com</b> for the lab.)</p>
+<img width="800" height="2000" alt="image" src="https://github.com/user-attachments/assets/e6995f89-6b1a-4c91-9bee-9df703a2095f" />
