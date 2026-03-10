@@ -225,14 +225,15 @@ Log into <b>DC-1</b> using the domain administrator account <b>mydomain.com\jane
 <p>
 Right-click the <b>_CLIENTS</b> Organizational Unit and select <b>Create a GPO in this domain, and Link it here</b>. Name the policy <b>Allow Remote Desktop</b>.
 </p>
+<img width="800" height="1226" alt="image" src="https://github.com/user-attachments/assets/19137cc2-aa09-41b7-8aa2-ada680d7e465" />
 <p>
-Edit the newly created policy and navigate to:
+Edit the newly created policy by <b>right-clicking → Edit</b> and navigate to:
 </p>
 <p>
 <b>Computer Configuration → Policies → Windows Settings → Security Settings → Local Policies → User Rights Assignment</b>
 </p>
 <p>
-Open <b>Allow log on through Remote Desktop Services</b> and add the group <b>Domain Users</b>. This allows non-administrative domain users to log into client machines using Remote Desktop.
+Open <b>Allow log on through Remote Desktop Services</b> and add the group <b>Domain Users</b> by typing in <b>Domain Users</b> and click <b>Check Names</b> then click <b>OK > OK > Apply > OK</b>. This allows non-administrative domain users to log into client machines using Remote Desktop.
 </p>
 <img width="800" height="2006" alt="image" src="https://github.com/user-attachments/assets/9d7ecdf5-f06b-4388-beff-097a9f0444d2" />
 <p>
