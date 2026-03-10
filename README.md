@@ -248,3 +248,18 @@ Once the policy updates, domain users will be able to connect to <b>Client-1</b>
 </p>
 <img width="800" height="1240" alt="image" src="https://github.com/user-attachments/assets/80fb1eb4-58f3-4980-9bc6-38a0b23e7839" />
 <hr>
+
+
+<h3>Step 17: Create Multiple Domain Users with PowerShell</h3>
+
+<p>
+Log into <b>DC-1</b> using the domain administrator account <b>mydomain.com\jane_admin</b>.
+</p>
+
+<p>
+Open <b>PowerShell ISE</b> as an administrator. Create a new script file and paste the contents of the user creation script (<a href="https://youtube.com">found here</a>) into the editor.
+</p>
+
+<p>
+Run the script to automatically create multiple user accounts in <b>Active Directory</b>.
+</p>
