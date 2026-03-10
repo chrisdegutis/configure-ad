@@ -237,7 +237,7 @@ Open <b>Allow log on through Remote Desktop Services</b> and add the group <b>Do
 </p>
 <img width="800" height="2006" alt="image" src="https://github.com/user-attachments/assets/9d7ecdf5-f06b-4388-beff-097a9f0444d2" />
 <p>
-After creating the policy, update the policy on <b>Client-1</b> by running the following command in PowerShell:
+After creating the policy, log into <b>Client-1</b> as <b>mydomain.com\jane_admin</b> and update the policy by running the following command in PowerShell:
 </p>
 <pre><code>gpupdate /force</code></pre>
 <p>
