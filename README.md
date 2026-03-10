@@ -14,6 +14,7 @@ It also covers foundational <b>Active Directory</b> administration tasks such as
 <!--- <h2>Video Demonstration</h2>
 
 - ### [YouTube: How to Deploy on-premises Active Directory within Azure Compute](https://www.youtube.com) -->
+<hr>
 
 <h2>Environments and Technologies Used</h2>
 
