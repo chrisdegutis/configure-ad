@@ -204,17 +204,14 @@ Log into <b>Client-1</b> using the original local administrator account <b>labus
 After entering the domain administrator credentials, you will see a message stating the computer has been added to the domain and the computer will automatically restart to apply the changes.
 </p>
 <img width="800" height="2016" alt="image" src="https://github.com/user-attachments/assets/598b81c5-fa0f-4119-a810-6c3fe5368cd3" />
-<p>
-Next, log back into the <b>Domain Controller (DC-1)</b> and open <b>Active Directory Users and Computers (ADUC)</b>. Verify that <b>Client-1</b> appears in the domain computers list.
-</p>
-<img width="800" height="1596" alt="image" src="https://github.com/user-attachments/assets/04717e82-9b32-4990-a8d4-f76d4735b8ca" />
 <hr>
 
 
-<h3>Step 15: Organize Client Computers in Active Directory</h3>
+<h3>Step 15: Verify and Organize Client Computers in Active Directory</h3>
 <p>
-Log into the <b>Domain Controller (DC-1)</b> and open <b>Active Directory Users and Computers (ADUC)</b>.
+Log into the <b>Domain Controller (DC-1)</b> and open <b>Active Directory Users and Computers (ADUC)</b>. Verify that <b>Client-1</b> appears in the domain computers list.
 </p>
+<img width="800" height="1596" alt="image" src="https://github.com/user-attachments/assets/04717e82-9b32-4990-a8d4-f76d4735b8ca" />
 <p>
 Create a new <b>Organizational Unit (OU)</b> named <b>_CLIENTS</b>.
 </p>
